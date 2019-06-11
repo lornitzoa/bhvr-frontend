@@ -4,13 +4,14 @@ import './App.css';
 import Main from './components/Main'
 import Landing from './components/Landing'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       // state of authorization
-      auth: false,
-      familyName: ''
+      auth: true,
+      familyName: 'Lornitzo'
     }
   } // closes constructor
 

@@ -13,19 +13,23 @@ class Register extends Component {
     }
   }
 
+  // handles form submit
   handleSubmit = (e) => {
     e.preventDefault()
+    // sets state to handle redirect to login
     this.setState({
       redirectToReferrer: true
     })
   }
 
+  // handles input changes
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
 
+  // handles pin input
   handlePin = (e) => {
     this.setState({
       pin: e
@@ -33,6 +37,7 @@ class Register extends Component {
   }
 
   render() {
+    // redirects to login page when registration form is submitted
     if (this.state.redirectToReferrer) return <Redirect to='/login'/>
     return (
       <div>
