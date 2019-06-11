@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
 import Main from './components/Main'
 import Landing from './components/Landing'
@@ -9,13 +9,15 @@ class App extends Component {
     super(props)
     this.state = {
       // state of authorization
-      auth: false
+      auth: false,
+      familyName: ''
     }
   } // closes constructor
 
-  login = () => {
+  login = (familyName) => {
     this.setState({
-      auth: true
+      auth: true,
+      familyName: familyName
     })
   }
 
@@ -29,8 +31,8 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div class='App'>
-          <h1 class='App-header'>Behaver</h1>
+        <div className='App'>
+          <h1 className='App-header'>Behaver</h1>
           <div>
             {this.state.auth ?
               <Route
@@ -38,6 +40,7 @@ class App extends Component {
                 render={() =>
                   <Main
                     logout={this.logout}
+                    familyName={this.state.familyName}
                   />
                 }
               />

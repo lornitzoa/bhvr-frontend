@@ -6,7 +6,7 @@ class Main extends Component {
       <div>
         <h1>Welcome</h1>
         <button onClick={this.props.logout}>Logout</button>
-        <h2>Family Dashboard</h2>
+        <h2>{this.props.familyName} Dashboard</h2>
       </div>
     )
   }
