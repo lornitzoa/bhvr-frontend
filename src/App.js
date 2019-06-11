@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './App.css';
+import Main from './components/Main'
+import Landing from './components/Landing'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      // state of authorization
+      auth: false
+    }
+  } // closes constructor
+
+  login = () => {
+    this.setState({
+      auth: true
+    })
+  }
+
+  logout = () => {
+    this.setState({
+      auth: false
+    })
+  }
+
+
+  render() {
+    return (
+      <Router>
+        <div class='App'>
+          <h1 class='App-header'>Behaver</h1>
+          <div>
+            {this.state.auth ?
+              <Route
+                to='/main'
+                render={() =>
+                  <Main
+                    logout={this.logout}
+                  />
+                }
+              />
+
+              :
+              <Route
+                to='/landing'
+                render={() =>
+                  <Landing
+                    login={this.login}
+                  />
+                }
+              />
+            }
+          </div>
+        </div>
+      </Router>
+    )
+  }
+
+} // this closes App class
 
 export default App;
