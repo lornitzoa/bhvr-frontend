@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 
 import ChildrenDashboard from './ChildrenDashboard'
 import ManageHousehold from './ManageHousehold'
@@ -17,26 +17,27 @@ class Main extends Component {
           <div>
             <nav className='nav-list'>
               <li>
-                <Link className='nav-link' to='/children-dashboard'>
+                <NavLink className='nav-link' activeClassName='active-nav' to='/children-dashboard'>
                   Children Overview
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className='nav-link' to='/manage-household'>
+                <NavLink className='nav-link' activeClassName='active-nav' to='/manage-household'>
                   Manage Household
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className='nav-link' to='/manage-tasks-behaviors'>
+                <NavLink className='nav-link' activeClassName='active-nav' to='/manage-tasks-behaviors'>
                   Manage behaviors
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className='nav-link' to='/manage-cashins'>
+                <NavLink className='nav-link' activeClassName='active-nav' to='/manage-cashins'>
                   Manage Cashins
-                </Link>
+                </NavLink>
               </li>
             </nav>
+
             <Route
               path='/children-dashboard'
               component={ChildrenDashboard}
